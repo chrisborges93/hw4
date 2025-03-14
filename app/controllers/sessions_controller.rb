@@ -3,9 +3,12 @@ class SessionsController < ApplicationController
   end
 
   def create
-  end
+    flash["notice"] = "Welcome!"
+    redirect_to "/companies"
+    end
 
   def destroy
+    flash["notice"] = "Goodbye."
   end
 end
   
