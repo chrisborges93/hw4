@@ -3,9 +3,21 @@ class SessionsController < ApplicationController
   end
 
   def create
-    flash["notice"] = "Welcome!"
-    redirect_to "/companies"
+
+    @user = User.find_by({"email" => params["email"]})
+
+    if @user != nil
+
+      flash["notice"] = "Welcome!"
+      redirect_to "/companies"
+      
+    else
+      flash["notice"] = "Nope."
+      redirect_to "/login"
+
     end
+
+  end
 
   def destroy
     flash["notice"] = "Goodbye."
