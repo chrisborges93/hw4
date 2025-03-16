@@ -17,7 +17,7 @@ class PlacesController < ApplicationController
   end
 
   def new
-    redirect_to "/" if session["user_id"].nil?  # ✅ Prevent logged-out users from accessing "New Place" page
+    redirect_to "/" if session["user_id"].nil? 
   end
 
   def create
