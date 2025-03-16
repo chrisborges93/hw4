@@ -1,4 +1,11 @@
 class PlacesController < ApplicationController
+  def index
+    if session["user_id"]
+      @places = Place.where(user_id: session["user_id"])  
+    else
+      redirect_to "/places"  
+    end
+  end
 
   def index
     @places = Place.all
@@ -10,6 +17,7 @@ class PlacesController < ApplicationController
   end
 
   def new
+    redirect_to "/" if session["user_id"].nil?  # ✅ Prevent logged-out users from accessing "New Place" page
   end
 
   def create
