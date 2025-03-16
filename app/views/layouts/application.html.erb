@@ -14,9 +14,8 @@
 
   <body>
     <p>
-      <% @user == User.find_by({"id" => session["user_id"]}) %>
 
-      <% if @user == nil %>
+      <% if @current_user == nil %>
         <a href="/users/new">Signup</a>
 
         <a href="/login">Login</a>
