@@ -2,12 +2,18 @@
 
 <% if session["user_id"] %> 
   <% if @places.any? %>
-      <% @places.each do |place| %> 
-        <p>
-          <a href="/places/<%= place.id %>" class="btn btn-light"><%= place.name %></a>
-        </p>
-      <% end %>
-    </ul>
+    <!-- ✅ Bootstrap Grid Layout for Places -->
+    <div class="container text-center">
+      <div class="row">
+        <% @places.each do |place| %> 
+          <div class="col-12 col-md-4 mb-4"> <!-- ✅ Stacks on small screens, 3 per row on large screens -->
+            <div class="card shadow-sm p-3">
+              <a href="/places/<%= place.id %>" class="btn btn-light"><%= place.name %></a>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
   <% else %>
     <p>You haven't added any places yet.</p> 
   <% end %>
@@ -17,5 +23,5 @@
   </p>
 <% else %>
   <p>You must be logged in to view places.</p>
-  <a href="/login">Login</a>
+  <a href="/login" class="btn btn-primary">Login</a>
 <% end %>
