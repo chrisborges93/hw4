@@ -26,10 +26,7 @@
             <a class="nav-link me-4" href="/users/new">Signup</a>
             <a class="nav-link me-4" href="/login">Login</a>
           <% else %>
-            <form action="/logout" method="post" style="display: inline;">
-              <input type="hidden" name="_method" value="delete">
-              <button type="submit" class="nav-link btn btn-link me-4">Logout</button>
-            </form>
+            <a href="/logout" class="nav-link me-4">Logout</a>
           <% end %>
           <a class="nav-link" href="/">Home</a>
         </div>

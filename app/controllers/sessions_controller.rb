@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
 
     if BCrypt::Password.new(@user["password"]) == params[:password]
 
-      #user session begins
       session["user_id"] = @user["id"]
 
       flash[:notice] = "Welcome!"
