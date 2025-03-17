@@ -3,7 +3,7 @@ class PlacesController < ApplicationController
     if session["user_id"]
       @places = Place.where(user_id: session["user_id"]) 
     else
-      redirect_to "/" 
+      redirect_to "/login" 
     end
   end
 
@@ -13,7 +13,7 @@ class PlacesController < ApplicationController
   end
 
   def new
-    redirect_to "/" if session["user_id"].nil? 
+    redirect_to "/login" if session["user_id"].nil? 
   end
 
   def create
@@ -24,7 +24,7 @@ class PlacesController < ApplicationController
       @place.save
     end 
     
-    redirect_to "/places"
+    redirect_to "/login"
   end
 end
 
