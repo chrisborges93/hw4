@@ -2,11 +2,10 @@
 
 <% if session["user_id"] %> 
   <% if @places.any? %>
-    <ul>
       <% @places.each do |place| %> 
-        <li>
-          <a href="/places/<%= place.id %>"><%= place.name %></a>
-        </li>
+        <p>
+          <a href="/places/<%= place.id %>" class="btn btn-light"><%= place.name %></a>
+        </p>
       <% end %>
     </ul>
   <% else %>
@@ -14,7 +13,7 @@
   <% end %>
 
   <p>
-    <a href="/places/new">Add a New Place</a> 
+    <a href="/places/new" class="btn btn-primary">Add New Place</a> 
   </p>
 <% else %>
   <p>You must be logged in to view places.</p>
