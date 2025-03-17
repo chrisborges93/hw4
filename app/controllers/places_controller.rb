@@ -22,9 +22,12 @@ class PlacesController < ApplicationController
       @place["name"] = params["name"]
       @place["user_id"] = session["user_id"]
       @place.save
+
+
+    redirect_to "/login"
     end 
     
-    redirect_to "/login"
+    
   end
 end
 
